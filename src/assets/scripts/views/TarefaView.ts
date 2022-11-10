@@ -1,17 +1,26 @@
-class TarefaView{
+class TarefaView {
     private tabela: HTMLTableElement;
 
-    constructor(){
+    constructor() {
         this.tabela = document.querySelector("#tabela-de-tarefas")!;
     }
 
-    montar(lista: TarefasLista){
-        lista.tarefas.map(tarefa =>{
+    montar(lista: TarefasLista) {
+        lista.tarefas.map(tarefa => {
             const linha = document.createElement('tr');
-            const colunaDescricao = document.createElement('td');
             
-            const colunaData = document.createElement('td');
-            const colunaConcluida = document.createElement('td');
+            const colunaDescricao = document.createElement('td');
+            colunaDescricao.innerHTML = tarefa.descricao;
+            linha.appendChild(colunaDescricao);
+
+            // const colunaData = document.createElement('td');
+            // colunaData.innerHTML = tarefa.data;
+            // linha.appendChild(colunaData);
+
+            // const colunaConcluida = document.createElement('td');
+
+            this.tabela.appendChild(linha);
+
         })
     }
 }
